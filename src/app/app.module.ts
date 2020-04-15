@@ -19,7 +19,7 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     HeaderComponent,
     ScoreComponent,
     SettingsComponent,
-    CanvasComponent
+    CanvasComponent,
   ],
   imports: [
     BrowserModule,

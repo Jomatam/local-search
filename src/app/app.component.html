@@ -1,18 +1,6 @@
-<mat-toolbar class="header" color = 'primary'>
-  <span class="header-item">Local Search - Simulated Annealing</span>
-  <span class="header-item">Score: {{ score | number:'1.0-0' }}</span>
-  <span class="header-item">T: {{ t | number:'1.3-3' }}</span>
-  <span class="header-item">Iterations: {{ getIterations() | number }}</span>
-</mat-toolbar>
+<app-header></app-header>
 <div id=main>
-  <mat-card id="scores">
-    <mat-card-title>
-      Scores
-    </mat-card-title>
-    <mat-card-content>
-      <p *ngFor="let score of scores" [class.current]="score.id === id">{{ score.score | number:'1.0-0' }}</p>
-    </mat-card-content>
-  </mat-card>
+  <app-score></app-score>
   <mat-card id="settings">
     <mat-card-title>
       Settings
@@ -22,22 +10,5 @@
       <button (click)="generateNew()" mat-raised-button color="accent">New</button>
     </span>
   </mat-card>
-  <div #canvas id="canvas" >
-    <svg *ngIf="dots.length === amount" [attr.width]="canvasWidth" [attr.height]="canvasHeight" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <circle *ngFor="let dot of dots" 
-                [attr.cx]="translateX(dot.x)" 
-                [attr.cy]="translateY(dot.y)" 
-                [attr.r]="radius" />
-      <line *ngFor="let dot of dots" 
-              [attr.x1]="translateX(dot.x)" 
-              [attr.y1]="translateY(dot.y)" 
-              [attr.x2]="translateX(dots[dot.next].x)" 
-              [attr.y2]="translateY(dots[dot.next].y)" />
-      <circle id="home"
-              [attr.cx]="translateX(dots[0].x)"
-              [attr.cy]="translateY(dots[0].y)"
-              [attr.r]="radius + 1"
-              fill="red" />
-    </svg>
-  </div>
+  <app-canvas></app-canvas>
 </div>

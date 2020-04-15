@@ -1,1 +1,6 @@
-<p>header works!</p>
+<mat-toolbar class="header" color = 'primary'>
+  <span class="header-item">Local Search - Simulated Annealing</span>
+  <span class="header-item">Top score: {{ runningValues.topscore | number:'1.0-0' }}</span>
+  <span class="header-item">T: {{ runningValues.t | number:'1.3-3' }}</span>
+  <span class="header-item">Iterations: {{ getIterations() | number }}</span>
+</mat-toolbar>

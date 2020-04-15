@@ -1,1 +1,21 @@
-<p>canvas works!</p>
+<div #canvas id="canvas" >
+  <svg *ngIf="waypoints.length === constants.amount" 
+       [attr.width]="viewWidth" 
+       [attr.height]="viewHeight" 
+       version="1.1" 
+       xmlns="http://www.w3.org/2000/svg">
+    <circle *ngFor="let waypoint of waypoints" 
+            [attr.cx]="translateX(waypoint.x)" 
+            [attr.cy]="translateY(waypoint.y)" 
+            [attr.r]="radius" />
+    <line *ngFor="let waypoint of waypoints" 
+          [attr.x1]="translateX(waypoint.x)" 
+          [attr.y1]="translateY(waypoint.y)" 
+          [attr.x2]="translateX(waypoints[waypoint.next].x)" 
+          [attr.y2]="translateY(waypoints[waypoint.next].y)" />
+    <circle id="home"
+            [attr.cx]="translateX(waypoints[0].x)"
+            [attr.cy]="translateY(waypoints[0].y)"
+            [attr.r]="radius * 2" />
+  </svg>
+</div>

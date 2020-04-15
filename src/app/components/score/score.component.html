@@ -1,1 +1,8 @@
-<p>score works!</p>
+<mat-card>
+  <mat-card-title>
+    Scores
+  </mat-card-title>
+  <mat-card-content>
+    <p *ngFor="let score of scores" [class.current]="score.id === id">{{ score.score | number:'1.0-0' }}</p>
+  </mat-card-content>
+</mat-card>
